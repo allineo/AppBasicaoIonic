@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>cadastro</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form>
 
+    <div class="ion-padding">
+      <ion-label position="stacked" color="primary">
+        Envie-nos seu feedback, dúvidas ou sugestões:</ion-label>
+      <ion-textarea name="messageField" rows="4"></ion-textarea>
+    </div>
+
+    <div class="ion-padding">
+      <ion-label position="stacked" color="primary">Informação de contato:</ion-label>
+      <ion-input name="contactField" type="text"></ion-input>
+    </div>
+
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit">Enviar</ion-button>
+    </div>
+
+  </form>
 </ion-content>

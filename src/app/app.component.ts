@@ -17,6 +17,11 @@ export class AppComponent {
       icon: 'home'
     },
     {
+      title: 'Cadastro',
+      url: '/cadastro',
+      icon: 'clipboard'
+    },
+    {
       title: 'List',
       url: '/list',
       icon: 'list'
@@ -37,4 +42,16 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
+
+
+  apiUrl = "https://appbasicao.herokuapp.com";
+
+  public getUrlParameter(urlParameterName) {
+    if (urlParameterName = (new RegExp('[?&]' +
+      encodeURIComponent(urlParameterName) + '=([^&]*)'))
+      .exec(location.search)) {
+      return decodeURIComponent(urlParameterName[1]);
+    }
+  }
+
 }

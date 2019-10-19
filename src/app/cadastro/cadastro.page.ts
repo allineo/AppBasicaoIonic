@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.page.html',
@@ -14,24 +15,26 @@ export class CadastroPage implements OnInit {
   ngOnInit() {
   }
 
-  email = this.teste();
+  email = this.getEmail();
 
-  teste() {
+  getEmail() {
     var email = this.appcomponents.getUrlParameter("email");
     console.log(email);
     return email;
   }
 
   sendForm() {
+    var contact = document.getElementById("contactField")["value"];
+    var message = document.getElementById("messageField")["value"];
+
     let url = this.appcomponents.apiUrl + "/saveForm" +
-      "?contact=" + this.email;
-     // "&message=" + message;
-      
+      "?contact=" + contact +
+      "&message=" + message;
     this.http.post(url, {})
       .subscribe(data => {
-        console.log('my data: ', data);
+        console.log(data);
       }, error => {
-        console.log(error);
+        console.log(error.message);
       });
   }
 }

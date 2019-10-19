@@ -1,6 +1,7 @@
 {
   "projects": {
     "default": "appbasicao",
-    "appbasicao": "teste-196e6"
+    "appbasicao": "teste-196e6",
+    "demo": "appbasicao-33a2c"
   }
 }

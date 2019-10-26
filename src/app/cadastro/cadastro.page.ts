@@ -10,27 +10,29 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CadastroPage implements OnInit {
 
+  email = this.getEmail();
+
   constructor(public appcomponents: AppComponent, public http: HttpClient) { }
 
   ngOnInit() {
   }
 
-  email = this.getEmail();
-
   getEmail() {
-    var email = this.appcomponents.getUrlParameter("email");
+    const email = this.appcomponents.getUrlParameter('email');
     console.log(email);
     return email;
   }
 
   sendForm() {
-    var contact = document.getElementById("contactField")["value"];
-    var message = document.getElementById("messageField")["value"];
+    const contact = document.getElementById('contactField')['value'];
+    const message = document.getElementById('messageField')['value'];
 
-    let url = this.appcomponents.apiUrl + "/saveForm";
-    var data = {contact: contact,
-                message: message}
-    this.http.post(url, data)
+    const url = this.appcomponents.apiUrl + '/saveForm';
+    const dataIn = {
+      contact,
+      message
+    };
+    this.http.post(url, dataIn)
       .subscribe(data => {
         console.log(data);
       }, error => {

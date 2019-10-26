@@ -10,6 +10,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
+  constructor(
+    private platform: Platform,
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar
+  ) {
+    this.initializeApp();
+  }
   public appPages = [
     {
       title: 'Home',
@@ -28,13 +36,8 @@ export class AppComponent {
     }
   ];
 
-  constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar
-  ) {
-    this.initializeApp();
-  }
+
+  apiUrl = 'https://appbasicao.herokuapp.com';
 
   initializeApp() {
     this.platform.ready().then(() => {
@@ -42,9 +45,6 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
-
-
-  apiUrl = "https://appbasicao.herokuapp.com";
 
   public getUrlParameter(urlParameterName) {
     if (urlParameterName = (new RegExp('[?&]' +

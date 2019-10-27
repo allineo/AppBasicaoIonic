@@ -36,22 +36,11 @@ export class AppComponent {
     }
   ];
 
-
-  apiUrl = 'https://appbasicao.herokuapp.com';
-
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
-  }
-
-  public getUrlParameter(urlParameterName) {
-    if (urlParameterName = (new RegExp('[?&]' +
-      encodeURIComponent(urlParameterName) + '=([^&]*)'))
-      .exec(location.search)) {
-      return decodeURIComponent(urlParameterName[1]);
-    }
   }
 
 }

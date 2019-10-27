@@ -8,22 +8,24 @@
 </ion-header>
 
 <ion-content>
-  <form>
+
+  <form #f="ngForm" (submit)="sendForm(f)">
 
     <div class="ion-padding">
       <ion-label position="stacked" color="primary">
         Envie-nos seu feedback, dúvidas ou sugestões:</ion-label>
-      <ion-textarea id="messageField" rows="4"></ion-textarea>
+      <ion-textarea name="messageField" rows="4" [(ngModel)]="messageField"></ion-textarea>
     </div>
 
     <div class="ion-padding">
       <ion-label position="stacked" color="primary">Informação de contato:</ion-label>
-      <ion-input id="contactField" type="text"></ion-input>
+      <ion-input name="contactField" type="text" [(ngModel)]="contactField"></ion-input>
     </div>
 
     <div class="ion-padding">
-      <ion-button expand="block" type="submit" (click)="sendForm()">Enviar</ion-button>
+      <ion-button type="submit" expand="block" name="buttonLogin">ENVIAR</ion-button>
     </div>
 
   </form>
+
 </ion-content>

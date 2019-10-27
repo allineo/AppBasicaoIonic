@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../app.component';
 import { HttpClient } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
+import { HelperService } from '../services/helper/helper.service';
 
 
 @Component({
@@ -10,35 +11,33 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CadastroPage implements OnInit {
 
-  email = this.getEmail();
+  constructor(public helper: HelperService,
+              public http: HttpClient) { }
 
-  constructor(public appcomponents: AppComponent, public http: HttpClient) { }
+  email = this.getEmail();
+  contactField: null;
+  messageField: null;
 
   ngOnInit() {
   }
 
   getEmail() {
-    const email = this.appcomponents.getUrlParameter('email');
+    const email = this.helper.getUrlParameter('email');
     console.log(email);
     return email;
   }
 
-  sendForm() {
-    const contact = document.getElementById('contactField')['value'];
-    const message = document.getElementById('messageField')['value'];
-
-    const url = this.appcomponents.apiUrl + '/saveForm';
+  sendForm(f: NgForm) {
+    const url = this.helper.apiUrl + '/saveForm';
     const dataIn = {
-      contact,
-      message
+      contact: this.contactField,
+      message: this.messageField
     };
     this.http.post(url, dataIn)
-      .subscribe(data => {
-        console.log(data);
+      .subscribe(dataOut => {
+        console.log(dataOut);
       }, error => {
         console.log(error.message);
       });
   }
 }
-
-

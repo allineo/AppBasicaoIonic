@@ -3,7 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  apiUrl: 'https://appbasicao.herokuapp.com',
+
+  firebase: {
+    apiKey: 'XXXXXXXXXXXXXXX',
+    authDomain: 'appbasicao-33a2c.firebaseapp.com',
+    databaseURL: 'https://appbasicao-33a2c.firebaseio.com',
+    projectId: 'appbasicao-33a2c',
+    storageBucket: 'appbasicao-33a2c.appspot.com',
+    messagingSenderId: 'XXXXXXXXXXXXX',
+    appId: 'XXXXXXXXXXXXXXXXXX',
+    measurementId: 'XXXXXXXXXXXXXXXX'
+  }
 };
 
 /*

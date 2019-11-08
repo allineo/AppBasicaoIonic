@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { HelperService } from '../services/helper/helper.service';
+import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class CadastroPage implements OnInit {
   }
 
   sendForm(f: NgForm) {
-    const url = this.helper.apiUrl + '/saveForm';
+    const url = environment.apiUrl + '/saveForm';
     const dataIn = {
       contact: this.contactField,
       message: this.messageField

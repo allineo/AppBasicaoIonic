@@ -10,5 +10,18 @@
 </ion-header>
 
 <ion-content>
-    <ion-img src="/assets/logoapp.png" alt="Logo do App"></ion-img>
+
+  <ion-img src="/assets/logoapp.png" alt="Logo do App"></ion-img>
+  <br><br>
+  
+  <form #f="ngForm" class="form" (submit)="validLogin(f)">
+    <ion-input type="text" name="email" minlength=3 [(ngModel)]="email" required 
+        placeholder="Digite seu e-mail">
+    </ion-input>
+    <ion-input type="password" name="password" minlength=6 [(ngModel)]="password" required 
+          placeholder="SENHA">
+    </ion-input>
+    <button type="submit" class="btn-login" name="buttonLogin">LOGAR</button>
+  </form>
+
 </ion-content>

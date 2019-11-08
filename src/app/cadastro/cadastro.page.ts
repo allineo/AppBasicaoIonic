@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { HelperService } from '../services/helper/helper.service';
+import { AuthenticationService } from '../services/authentication/authentication.service';
 import { environment } from '../../environments/environment';
 
 
@@ -12,8 +13,10 @@ import { environment } from '../../environments/environment';
 })
 export class CadastroPage implements OnInit {
 
-  constructor(public helper: HelperService,
-              public http: HttpClient) { }
+  constructor(
+    private helper: HelperService,
+    private authentication: AuthenticationService,
+    private http: HttpClient) { }
 
   email = this.getEmail();
   contactField: null;
@@ -32,7 +35,8 @@ export class CadastroPage implements OnInit {
     const url = environment.apiUrl + '/saveForm';
     const dataIn = {
       contact: this.contactField,
-      message: this.messageField
+      message: this.messageField,
+      token: this.authentication.token
     };
     this.http.post(url, dataIn)
       .subscribe(dataOut => {

@@ -29,3 +29,7 @@
 ion-content {
     --background: rgba(158, 158, 158, 0.5) !important;
 }
+
+ion-input, ion-textarea {  
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
